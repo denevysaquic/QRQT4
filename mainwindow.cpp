@@ -6,7 +6,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    printQRCode();
+   // printQRCode();
 }
 
 MainWindow::~MainWindow()
@@ -14,11 +14,18 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-MainWindow::printQRCode()
+void MainWindow::printQRCode()
+{
+
+}
+
+void MainWindow::on_pushButton_clicked()
 {
     QPrinter printer;
+    QPrintDialog dialog(&printer, this);
+       if (dialog.exec()) {
 //    printer.setPrinterName("DASCOM DS-650Pro"); / / printer name
-    printer.setPrinterName("CutePDF Writer");
+   // printer.setPrinterName("CutePDF Writer");
     QPainter painter(&printer);
 
     QSize size;
@@ -27,4 +34,8 @@ MainWindow::printQRCode()
     MyQRCode qr;
     qr.paintQR(painter,QPoint(150,200),size,"Hello, dregs",QColor(0, 160, 230));
     painter.end();
+
+    }
+
+    qDebug()<<"make qr";
 }
