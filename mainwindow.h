@@ -4,7 +4,8 @@
 #include <QMainWindow>
 #include <QDebug>
 #include <QPrintDialog>
-
+#include <QImage>
+#include <QFileDialog>
 #include "myqrcode.h"
 
 namespace Ui {
